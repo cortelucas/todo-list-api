@@ -8,8 +8,16 @@
     "start": "tsx src/main.ts",
     "start:dev": "tsx watch src/main.ts",
     "build": "tsup src",
-    "lint": "eslint --fix",
-    "lint-staged": "lint-staged"
+    "lint:fix": "eslint --fix",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "pnpm lint:fix",
+      "pnpm test",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -22,6 +30,7 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "tsup": "^6.7.0",
     "tsx": "^3.12.7",
